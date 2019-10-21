@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { AuthService } from '../auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginFormGroup : FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.loginFormGroup = new FormGroup({
@@ -29,7 +30,10 @@ export class LoginComponent implements OnInit {
   get password(){ return this.loginFormGroup.get('password'); }
 
   onSubmit(){
-    console.warn(this.loginFormGroup.value);
+    this.authService.login({
+      email: this.loginFormGroup.value.email,
+      password: this.loginFormGroup.value.password
+    });
   }
 
 }
