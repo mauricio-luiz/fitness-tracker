@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth-service.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -18,6 +18,11 @@ export class SidenavListComponent implements OnInit {
     this.authSubscription = this.authService.authChange.subscribe(authStatus => {
       this.isAuth = authStatus;
     });
+  }
+
+  onLogout(){
+    this.onClose();
+    this.authService.logout();
   }
 
   onClose(){

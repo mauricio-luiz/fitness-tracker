@@ -12,7 +12,7 @@
         <span class="nav-caption">Training</span>
     </a>
     <mat-list-item>
-        <button *ngIf="isAuth" mat-icon-button>
+        <button *ngIf="isAuth" (click)="onLogout()" mat-icon-button>
             <mat-icon>eject</mat-icon>
             <span class="nav-caption">Logout</span>
         </button>
