@@ -18,14 +18,14 @@ export class SetFinishedTrainings implements Action{
     constructor(public payload: Exercise[]) {}
 }
 
-export class SetStartTraining implements Action{
+export class StartTraining implements Action{
     readonly type = START_TRAINING;
 
-    constructor(public payload: Exercise) {}
+    constructor(public payload: string) {}
 }
 
-export class SetStopTraining implements Action{
+export class StopTraining implements Action{
     readonly type = STOP_TRAINING;    
 }
 
-export type TrainingActions = SetAvailableTrainings | SetFinishedTrainings | SetStartTraining | SetStopTraining;
+export type TrainingActions = SetAvailableTrainings | SetFinishedTrainings | StartTraining | StopTraining;
