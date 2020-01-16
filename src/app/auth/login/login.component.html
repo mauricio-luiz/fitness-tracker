@@ -10,7 +10,7 @@
         <mat-hint>Please enter your password.</mat-hint>
         <mat-error>Field must not be empty!</mat-error>
       </mat-form-field>
-      <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="!loginFormGroup.valid">Submit</button>
-      <mat-spinner *ngIf="isLoading"></mat-spinner> 
+      <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary" [disabled]="!loginFormGroup.valid">Submit</button>
+      <mat-spinner *ngIf="isLoading$  | async"></mat-spinner> 
   </form>
 </section>
